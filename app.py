@@ -35,6 +35,18 @@ def divisao(num1, num2):
     num2 = int(num2)
     return f'Divisao de {num1} / {num2} = {num1 / num2}'
 
+@app.route('/verificacao/<num1>')
+def verificacao(num1):
+    try:
+        num1 = int(num1)
+        par_impar = num1 % 2
+        if par_impar == 0:
+            return "par"
+        else:
+            return "impar"
+    except ValueError:
+        return "Digite apenas numeros inteiros, digite novamente"
+
 
 if __name__ == '__main__':
     app.run(debug=True)
